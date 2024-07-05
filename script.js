@@ -1,7 +1,7 @@
 const menBtn = document.getElementById("men");
 const womenBtn = document.getElementById("women");
 const kidBtn = document.getElementById("kids");
-
+const loader = document.getElementById("loader");
 const cardsContainer = document.getElementById("cards-container");
 let data = [];
 
@@ -47,6 +47,7 @@ async function getData() {
   try {
     const res = await fetch(url);
     const result = await res.json();
+    loader.style.display = "none";
     data = result.categories;
     // console.log(result.categories[0].category_products);
     const products = [
@@ -100,7 +101,6 @@ function createCard(cardData) {
 }
 
 getData();
-
 
 /*
 

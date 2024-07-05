@@ -60,6 +60,7 @@ body {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 5rem;
 }
 
 .card {
@@ -179,5 +180,24 @@ body {
 @media (max-width: 500px) {
   .main-heading {
     font-size: 3rem;
+  }
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-bottom: 16px solid blue;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 0.4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
