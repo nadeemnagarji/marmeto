@@ -86,10 +86,14 @@ function createCard(cardData) {
   productPrice.className = "product-price";
   productPrice.innerHTML = `RS ${cardData.price}<small>$${cardData.compare_at_price}</small>`;
   cardInfo.appendChild(productPrice);
-
+  const discountPercentage = calculateDiscount(
+    cardData.compare_at_price,
+    cardData.price
+  );
+  //console.log(discountPercentage);
   const discount = document.createElement("span");
   discount.id = "discount";
-  discount.innerText = `50% off`;
+  discount.innerText = `${discountPercentage}% off`;
   productPrice.appendChild(discount);
 
   cardContainer.appendChild(cardInfo);
@@ -103,6 +107,12 @@ function createCard(cardData) {
 }
 
 getData();
+
+function calculateDiscount(originalPrice, finalPrice) {
+  const discount = originalPrice - finalPrice;
+  const discountPercentage = (discount / originalPrice) * 100;
+  return discountPercentage.toFixed(0);
+}
 
 /*
 
